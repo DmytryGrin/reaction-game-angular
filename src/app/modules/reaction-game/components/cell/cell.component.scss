@@ -1,0 +1,24 @@
+@use 'src/styles/variables';
+
+:host {
+  display: inline-block;
+}
+
+.cell {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  cursor: pointer;
+
+  &.red {
+    background-color: variables.$cell-color-red;
+  }
+
+  &.blue {
+    background-color: variables.$cell-color-blue;
+  }
+
+  &.green {
+    background-color: variables.$cell-color-green;
+  }
+}
