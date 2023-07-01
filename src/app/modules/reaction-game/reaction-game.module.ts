@@ -6,13 +6,23 @@ import { ReactionGamesHostComponent } from './pages/reaction-games-host/reaction
 import { CellComponent } from './components/cell/cell.component';
 import { GameFieldComponent } from './components/game-field/game-field.component';
 import { ResultsModalComponent } from './modals/results-modal/results-modal.component';
+import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 @NgModule({
-  declarations: [ReactionGamesHostComponent, CellComponent, GameFieldComponent, ResultsModalComponent],
+  declarations: [
+    ReactionGamesHostComponent, 
+    CellComponent, 
+    GameFieldComponent, 
+    ResultsModalComponent,
+  ],
   imports: [
     CommonModule,
-    ReactionGameRoutingModule
-  ]
+    ReactionGameRoutingModule,
+    FormsModule,
+    MatDialogModule,
+  ],
 })
 export class ReactionGameModule { }

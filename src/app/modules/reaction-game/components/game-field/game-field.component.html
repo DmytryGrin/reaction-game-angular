@@ -2,10 +2,14 @@
   <div class="field-content">
     <app-cell 
       class="field-content-cell"
-      *ngFor="let value of gameItems"
+      *ngFor="let value of gameItems; index as i;"
       [value]="value"
+      (click)="onPlayersClick(i)"
     >
     </app-cell>
   </div>
+
+  <input [(ngModel)]="timeout" type="number"> Enter time (ms)
+  <button (click)="startGame()">click</button>
 
 </section>

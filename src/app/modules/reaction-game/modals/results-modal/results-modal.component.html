@@ -1,1 +1,7 @@
-<p>results-modal works!</p>
+<section class="results-modal">
+  <header>Score</header>
+  <p *ngIf="isPlayerWin">You are the winner!</p>
+  <p *ngIf="!isPlayerWin">You are the looser:(</p>
+
+  <div>{{ score.player }} - {{ score.comp }}</div>
+</section>

@@ -6,8 +6,8 @@
 
 .cell {
   display: inline-block;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   cursor: pointer;
 
   &.red {
@@ -20,5 +20,9 @@
 
   &.green {
     background-color: variables.$cell-color-green;
+  }
+
+  &.yellow {
+    background-color: variables.$cell-color-yellow;
   }
 }
