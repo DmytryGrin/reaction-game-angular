@@ -1,0 +1,6 @@
+.field {
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+  gap: 4px;
+  width: fit-content;
+}

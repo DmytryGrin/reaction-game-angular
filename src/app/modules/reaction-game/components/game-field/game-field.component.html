@@ -1,0 +1,9 @@
+<section class="field">
+  <app-cell 
+    class="field-cell"
+    *ngFor="let cellValue of gameItems; index as i;"
+    [value]="cellValue"
+    (click)="onPlayersClick(i)"
+  >
+  </app-cell>
+</section>

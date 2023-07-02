@@ -1,0 +1,43 @@
+<section class="results-modal">
+  <header class="results-modal-header">
+    <h2>Score</h2>
+  </header>
+
+  <p *ngIf="isPlayerWin" class="results-modal-message win">You are the winner!</p>
+  <p *ngIf="!isPlayerWin" class="results-modal-message lost">You are the looser:(</p>
+
+  <div class="results-modal-score">
+    <div class="score-item">
+      <h4>
+        Player
+      </h4>
+      <span class="score-item-number">
+        {{ score.player }}
+      </span>
+    </div>
+    <div class="score-item">
+      <h4>
+        Computer
+      </h4>
+      <span class="score-item-number">
+        {{ score.comp }}
+      </span>
+    </div>
+  </div>
+
+  <div class="results-modal-actions">
+    <button 
+      mat-flat-button 
+      (click)="close(false)"
+    >
+      Cancel
+    </button>
+    <button 
+      mat-flat-button 
+      color="primary"
+      (click)="close(true)"
+    >
+      Try again
+    </button>
+  </div>
+</section>

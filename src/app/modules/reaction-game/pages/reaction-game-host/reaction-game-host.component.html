@@ -1,0 +1,34 @@
+<section class="game-host">
+  <header>
+    <h1>
+      Check your reaction
+    </h1>
+  </header>
+
+  <form #settingsForm="ngForm" class="game-host-settings">
+    <mat-form-field class="game-host-settings-time">
+      <mat-label>Enter time (ms): </mat-label>
+      <input 
+        matInput 
+        name="time"
+        type="number" 
+        min="1"
+        max="10000"
+        [(ngModel)]="reactionTime">
+    </mat-form-field>
+    
+    <button 
+      mat-flat-button 
+      color="primary"
+      class="startButton"
+      [disabled]="isGameStarted || settingsForm.invalid"
+      (click)="startGame()"
+    >
+      Start game
+    </button>
+  </form>
+
+  <div class="game-host-field">
+    <app-game-field></app-game-field>
+  </div>
+</section>
