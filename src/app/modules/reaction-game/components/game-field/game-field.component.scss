@@ -1,12 +1,6 @@
 .field {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 24px;
-}
-
-.field-content {
   display: grid;
   grid-template-columns: repeat(10, auto);
   gap: 4px;
+  width: fit-content;
 }

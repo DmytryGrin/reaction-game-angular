@@ -2,14 +2,15 @@
 
 :host {
   display: inline-block;
-}
-
-.cell {
-  display: inline-block;
   height: 24px;
   width: 24px;
   cursor: pointer;
+}
 
+.cell {
+  height: 24px;
+  width: 24px;
+  
   &.red {
     background-color: variables.$cell-color-red;
   }

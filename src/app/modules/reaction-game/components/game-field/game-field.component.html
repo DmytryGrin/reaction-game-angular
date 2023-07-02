@@ -1,15 +1,9 @@
 <section class="field">
-  <div class="field-content">
-    <app-cell 
-      class="field-content-cell"
-      *ngFor="let value of gameItems; index as i;"
-      [value]="value"
-      (click)="onPlayersClick(i)"
-    >
-    </app-cell>
-  </div>
-
-  <input [(ngModel)]="reactionTime" type="number"> Enter time (ms)
-  <button (click)="startGame()">click</button>
-
+  <app-cell 
+    class="field-cell"
+    *ngFor="let cellValue of gameItems; index as i;"
+    [value]="cellValue"
+    (click)="onPlayersClick(i)"
+  >
+  </app-cell>
 </section>

@@ -1,0 +1,15 @@
+.game-host {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 60px;
+}
+
+.game-host-settings {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-host-field {
+  margin-top: 24px;
+}

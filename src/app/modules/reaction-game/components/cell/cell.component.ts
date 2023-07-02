@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { CellValues } from 'src/app/modules/types/cell-type';
+import { CellValues } from 'src/app/modules/reaction-game/types/cell-type';
 
 @Component({
   selector: 'app-cell',
