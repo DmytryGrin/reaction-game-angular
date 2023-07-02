@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ReactionGamesHostComponent } from './pages/reaction-games-host/reaction-games-host.component';
+import { GameFieldComponent } from './components/game-field/game-field.component';
 
 const routes: Routes = [
   {
@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'game',
-    component: ReactionGamesHostComponent,
+    component: GameFieldComponent,
   },
 ];
 

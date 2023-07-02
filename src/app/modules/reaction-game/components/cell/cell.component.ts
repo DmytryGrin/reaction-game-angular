@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CellValues } from 'src/app/modules/types/cell-type';
 
 @Component({
@@ -7,7 +7,7 @@ import { CellValues } from 'src/app/modules/types/cell-type';
   styleUrls: ['./cell.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CellComponent implements OnInit {
+export class CellComponent {
   @Input() value: CellValues;
 
   readonly colors: string[] = [
@@ -19,12 +19,6 @@ export class CellComponent implements OnInit {
 
   public get class(): string {
     return this.colors[this.value]
-  }
-
-  constructor() { }
-
-  ngOnInit(): void {
-    
   }
 
 }
