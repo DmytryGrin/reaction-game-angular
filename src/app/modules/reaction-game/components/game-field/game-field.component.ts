@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CellValues } from 'src/app/modules/reaction-game/types/cell-type';
 import { GameAlgorythmService } from '../../services/game-algorythm.service';
+import { Cell } from 'src/app/modules/types/cell-type';
 
 @Component({
   selector: 'app-game-field',
@@ -13,7 +13,7 @@ export class GameFieldComponent {
     private gameAlgorythmService: GameAlgorythmService,
   ) { }
 
-  get gameItems(): CellValues[] {
+  get gameItems(): Cell[] {
     return this.gameAlgorythmService.gamesField;
   }
 

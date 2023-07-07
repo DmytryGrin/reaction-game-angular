@@ -1,16 +1,16 @@
 import { Injectable } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { Subject, take, takeUntil, timer } from "rxjs";
-import { CellValues } from "../types/cell-type";
 import { ResultsModalComponent } from "../modals/results-modal/results-modal.component";
+import { Cell } from "../../types/cell-type";
 
 @Injectable()
 export class GameAlgorythmService {
-  private readonly cellAmount: number = 100;
+  private readonly rowCellAmount: number = 5;
   private readonly maxScores = 10;
   
   private timeout = 2000;
-  private gameItems: CellValues[] = [];
+  private gameItems: Cell[] = [];
   private currentIdx: number;
   private computerScores = 0;
   private playerScores = 0;
@@ -28,7 +28,7 @@ export class GameAlgorythmService {
     return this.gameStarted;
   }
 
-  public get gamesField(): CellValues[] {
+  public get gamesField(): Cell[] {
     return this.gameItems;
   }
 
@@ -68,27 +68,27 @@ export class GameAlgorythmService {
   }
 
   private markCellAsPending(idx: number): void {
-    this.gameItems[idx] = 3;
+    this.gameItems[idx].value = 3;
   }
 
   private markCellAsComp(idx: number): void {
-    this.gameItems[idx] = 2;
+    this.gameItems[idx].value = 2;
   }
 
   private markCellAsPlayer(idx: number): void {
-    this.gameItems[idx] = 1;
+    this.gameItems[idx].value = 1;
   }
 
   private getRandomUntouchedCellIndex(): number {
-    const randomIndex = Math.floor(Math.random() * this.gameItems.length);
-    if (!this.gameItems.includes(0)) {
+    const filtredCells = this.gamesField.filter((item) => {
+      return item.value !== 0;
+    })
+
+    if (!filtredCells.length) {
       return -1;
     }
-    if (this.gameItems[randomIndex] === 0) {
-      return randomIndex;
-    } else {
-      return this.getRandomUntouchedCellIndex();
-    }
+
+    return Math.floor(Math.random() * filtredCells.length);
   }
 
   private checkScore(): void {
@@ -118,8 +118,15 @@ export class GameAlgorythmService {
   }
 
   private resetGameField(): void {
-    this.gameItems.length = this.cellAmount;
-    this.gameItems.fill(0);
+    for (let index = 0; index < this.rowCellAmount; index++) {
+      for (let j = 0; index < this.rowCellAmount; j++)
+      this.gamesField.push({
+        x: index,
+        y: j,
+        value: 0,
+      });
+    }
+
     this.computerScores = 0;
     this.playerScores = 0;
   }

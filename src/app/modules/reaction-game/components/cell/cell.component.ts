@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { CellValues } from 'src/app/modules/reaction-game/types/cell-type';
+import { Cell } from 'src/app/modules/types/cell-type';
 
 @Component({
   selector: 'app-cell',
@@ -8,7 +8,7 @@ import { CellValues } from 'src/app/modules/reaction-game/types/cell-type';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CellComponent {
-  @Input() value: CellValues;
+  @Input() value: Cell;
 
   readonly colors: string[] = [
     'blue',
@@ -18,7 +18,7 @@ export class CellComponent {
   ]
 
   public get class(): string {
-    return this.colors[this.value]
+    return this.colors[this.value.value]
   }
 
 }
