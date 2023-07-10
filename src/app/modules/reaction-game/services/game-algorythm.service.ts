@@ -43,6 +43,7 @@ export class GameAlgorythmService {
   public startGame(): void {
     this.gameStarted = true;
     this.currentIdx = this.getRandomUntouchedCellIndex();
+    
     this.markCellAsPending(this.currentIdx);
 
     timer(this.timeout)
@@ -81,8 +82,8 @@ export class GameAlgorythmService {
 
   private getRandomUntouchedCellIndex(): number {
     const filtredCells = this.gamesField.filter((item) => {
-      return item.value !== 0;
-    })
+      return item.value == 0;
+    });
 
     if (!filtredCells.length) {
       return -1;
@@ -118,8 +119,9 @@ export class GameAlgorythmService {
   }
 
   private resetGameField(): void {
+    this.gameItems = [];
     for (let index = 0; index < this.rowCellAmount; index++) {
-      for (let j = 0; index < this.rowCellAmount; j++)
+      for (let j = 0; j < this.rowCellAmount; j++)
       this.gamesField.push({
         x: index,
         y: j,

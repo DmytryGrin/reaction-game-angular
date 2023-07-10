@@ -5,7 +5,6 @@ import { Cell } from 'src/app/modules/types/cell-type';
   selector: 'app-cell',
   templateUrl: './cell.component.html',
   styleUrls: ['./cell.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CellComponent {
   @Input() value: Cell;
